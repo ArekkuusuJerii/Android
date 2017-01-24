@@ -1,41 +1,49 @@
 package net.codejam.util.math;
 
 /**
- * Created by Snack on 21/01/2017.
+ * This file was created by Snack on 21/01/2017. It's distributed as part of MindFlex.
+ * Get the source code in GitHub: https://github.com/ArekkuusuJerii/MindFlex
+ * MidFlex is open source, and is distributed under the licence MIT.
  */
 
 public class ScreenPos {
 
-    private int x, y;
+    private float x, y;
 
-    public ScreenPos(int x, int y) {
+    public ScreenPos(float x, float y) {
         this.x = x;
         this.y = y;
     }
 
-    public void setX(int x) {
+    public void setX(float x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    public void setY(float y) {
         this.y = y;
     }
 
-    public int getX() {
+    public float getX() {
         return x;
     }
 
-    public int getY() {
+    public float getY() {
         return y;
     }
 
-    public ScreenPos add(int x, int y) {
+    /**
+     * A
+     * @param x
+     * @param y
+     * @return
+     */
+    public ScreenPos add(float x, float y) {
         this.x += x;
         this.y += y;
         return this;
     }
 
-    public ScreenPos offSet(int off) {
+    public ScreenPos offSet(float off) {
         this.x += off;
         this.y += off;
         return this;
