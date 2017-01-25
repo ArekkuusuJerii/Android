@@ -20,7 +20,7 @@ import static net.codejam.MindFlex.State.*;
 public class MindFlex extends ApplicationAdapter {
 
     /**
-     * Los diferentes estados del juego
+     * Los diferentes state del juego
      */
     enum State {
         STARTING,
@@ -29,7 +29,7 @@ public class MindFlex extends ApplicationAdapter {
         PLAYING,
         CLOSED
     }
-    /*El estado del juego actual*/
+    /*El state del juego actual*/
     public static State GAME_STATE;
     private IGameState state;
     /*El tiempo en el juego*/
@@ -59,7 +59,7 @@ public class MindFlex extends ApplicationAdapter {
                 break;
             case READY:
                 state.play();
-                if (GAME_TIME > 25.2) {
+                if (GAME_TIME > 30) {
                     state.stop();
                     GAME_STATE = WAITING;
                     state = new Waiting();

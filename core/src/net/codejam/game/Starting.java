@@ -21,7 +21,7 @@ public class Starting implements IGameState {
 
     public void play() {
         RenderHelper.clearScreen();
-        ScreenPos pos = new ScreenPos(450, 300).add(0, MathHelper.cosAngleModifier(50F, 25F, 0F, GAME_TIME));
+        ScreenPos pos = new ScreenPos(450, 300).add(0, MathHelper.cosAngleModifier(50F, 25F, 0F, GAME_TIME));//450,300
         Text welcome = new Text("Cargando...").setAlign(Align.center).scaleXy(5);
         TextRenderer.drawNormal(welcome, pos).end();
     }

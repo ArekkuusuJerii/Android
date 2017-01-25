@@ -16,23 +16,25 @@ import net.codejam.util.math.ScreenPos;
 
 public class Ready implements IGameState {
 
-    private float blurBegin;
-    private float blurEnd = 1;
+    private boolean scaleDown;
+    private float blur;
 
     @Override
     public void play() {
         RenderHelper.clearScreen();
-        Color color = new Color(Color.BLACK);
-        if(blurBegin < 1) {
-            color.mul(blurBegin);
-            blurBegin += 0.01;
+        Color color = new Color(Color.SCARLET);
+        if (!scaleDown) {
+            if (blur < 1)
+                blur += 0.01;
+            else scaleDown = true;
         }
-        else if(blurEnd > 0) {
-            color.mul(blurEnd);
-            blurEnd -= 0.01;
+        else {
+            if (blur > 0)
+                blur -= 0.01;
         }
+        color.mul(blur);
         Text ready = new Text("Welcome to MindFlex").setColor(color).setAlign(Align.center).scaleXy(5);
-        TextRenderer.drawNormal(ready, new ScreenPos(450, 300)).end();
+        TextRenderer.drawNormal(ready, new ScreenPos(450, 300)).end(); //450,300
     }
 
     @Override

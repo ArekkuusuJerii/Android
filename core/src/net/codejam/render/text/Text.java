@@ -17,9 +17,9 @@ public final class Text {
 
     private SpriteBatch spriteBatch;
     private BitmapFont bitmapFont;
-    /* El texto que se va a renderizar */
+    /* El String que se va a dibujar en pantalla */
     private String text;
-    /* El texto que se agrega después de este texto */
+    /* String que se concatena con el String a dibujar en pantalla */
     private String truncate;
     /* El alineamiento del texto */
     private int align;
@@ -56,8 +56,8 @@ public final class Text {
     }
 
     /**
-     * @param text
-     * @return This object
+     * @param text String que se quiere dibujar
+     * @return Este objeto
      */
     public Text setText(String text) {
         this.text = text;
@@ -69,8 +69,8 @@ public final class Text {
     }
 
     /**
-     * @param truncate String a añadir
-     * @return This object
+     * @param truncate String a concatenar
+     * @return Este objeto
      */
     public Text setTruncate(String truncate) {
         this.truncate = truncate;
@@ -85,7 +85,7 @@ public final class Text {
      * Da un {@link Color} al texto
      *
      * @param color A color
-     * @return This object
+     * @return Este objeto
      */
     public Text setColor(Color color) {
         this.bitmapFont.setColor(color);
@@ -97,10 +97,11 @@ public final class Text {
     }
 
     /**
-     * Da un {@link Align} al texto
+     * Da una alineación al texto
      *
-     * @param align
-     * @return
+     * @see Align
+     * @param align Alineación
+     * @return Este objeto
      */
     public Text setAlign(int align) {
         this.align = align;
@@ -115,7 +116,7 @@ public final class Text {
      * Da un espacio de confinamiento al texto
      *
      * @param width Tamaño del confinamiento
-     * @return This object
+     * @return Este objeto
      */
     public Text setWrap(int width) {
         wrap = width;
@@ -127,21 +128,21 @@ public final class Text {
     }
 
     /**
-     * Escala el texto a un nuevo tamaño
+     * Escala el texto en pixeles
      *
      * @param scale Escala 'x' y 'y'
-     * @return This object
+     * @return Este objeto
      */
     public Text scaleXy(float scale) {
         return scale(scale, scale);
     }
 
     /**
-     * Escala el texto a un nuevo tamaño
+     * Escala el texto en pixeles
      *
      * @param x Escala 'x'
      * @param y Escala 'y'
-     * @return This object
+     * @return Este objeto
      */
     public Text scale(float x, float y) {
         this.bitmapFont.getData().setScale(x, y);
@@ -149,10 +150,10 @@ public final class Text {
     }
 
     /**
-     * Dibuja el Sting en la {@link ScreenPos}
+     * Dibuja el String en la {@link ScreenPos}
      *
-     * @param pos The position on the screen
-     * @return This object
+     * @param pos Posición en la pantalla
+     * @return Este objeto
      */
     public Text drawNormal(ScreenPos pos) {
         this.spriteBatch.begin();
@@ -163,7 +164,7 @@ public final class Text {
 
     /**
      * Remueve a {@link SpriteBatch} y {@link BitmapFont} de la memoria. Es necesario llamar este
-     * método al eliminar el objeto, de lo contrario la memoria se vería afectada con basura
+     * método al terminar de usar el texto, de lo contrario la memoria se vería afectada con basura
      */
     public void end() {
         this.spriteBatch.dispose();
